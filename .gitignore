@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+*.swp
+*.swo
+.vscode
+.idea
+
+# Build
+vendor
+.vendor-new
+build
+dist
+testnet
+localnet
+config/keys.json
+
+# IDE
+.idea/
+*.iml
+
+#configs
+vue/
+vue/node_modules
+vue/dist
+release/
+config.yml
