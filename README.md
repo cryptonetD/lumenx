@@ -76,15 +76,6 @@ screen -dmSL lumenxd build/lumenxd start
 build/lumenxd status
 ```
 
-#### Compile and install LumenX
-`make build`
-
-#### Start LumenX
-`build/lumenxd start`
-
-#### Again to run process in background run
-`screen -dmSL lumenxd build/lumenxd start`
-
 ### Create a key
 Add new
 ``` bash
@@ -134,12 +125,12 @@ build/lumenxd query bank balances <key address>
 ```
 
 For test nodes, `chain-id` is `LumenX`.\
-You need transction fee `2ulumen` to make your transaction for creating validator.\
+You need transction fee `2000000ulumen` to make your transaction for creating validator.\
 Don't use more `ulumen` than you have!
 
 ```bash
 build/lumenxd tx staking create-validator \
-  --amount=1000000ulumen \
+  --amount=10000000ulumen \
   --pubkey=$(build/lumenxd tendermint show-validator) \
   --moniker=<choose a moniker> \
   --chain-id=<chain_id> \
@@ -148,7 +139,7 @@ build/lumenxd tx staking create-validator \
   --commission-max-change-rate="0.01" \
   --min-self-delegation="1" \
   --from=<key_name> \
-  --fees=2ulumen
+  --fees=2000000ulumen
 ```
 
 * NOTE: If you have troubles with \'\\\' symbol, run the command in a single line like `build/lumenxd tx staking create-validator --amount=1000000ulumen --pubkey=$(build/lumenxd tendermint show-validator) ...`
