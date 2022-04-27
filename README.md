@@ -12,6 +12,10 @@ Get mainnet config [here](https://github.com/metaprotocol-ai/lumenx/tree/master/
 CPU: 4 core
 RAM: 16 GB
 DISK Storage: SSD 1,000 GB
+
+- Software requirements
+OS: Ubuntu Server 20.04
+Go version: Go 1.17+
 ```
 
 ### Build from code
@@ -75,6 +79,7 @@ screen -dmSL lumenxd build/lumenxd start
 # Check your node's status with LumenX cli
 build/lumenxd status
 ```
+If you want to run lumenxd as a permanent background service, see [here](https://github.com/metaprotocol-ai/lumenx/tree/master/run-a-node-as-a-background-service)
 
 ### Create a key
 Add new
@@ -176,3 +181,45 @@ Collect all of gentxs
 
 Run network
 ```build/lumenxd start```
+
+
+## Run a node as a background service
+
+Create some necessary files
+```
+sudo mkdir -p /var/log/lumenxd
+sudo touch /var/log/lumenxd/digitaloceand.log
+sudo touch /var/log/lumenxd/lumenxd_error.log
+sudo touch /etc/systemd/system/lumenxd.service
+```
+
+Edit systemd service file for myblockchaind.
+```sudo nano /etc/systemd/system/lumenxd.service```
+
+Add following configuration to it:
+```
+Description=lumenxd daemon
+After=network-online.target
+[Service]
+User=ubuntu
+ExecStart=/home/ubuntu/lumenx/build/lumenxd start --home=/home/ubuntu/.lumenx
+WorkingDirectory=/home/ubuntu/go/bin
+StandardOutput=file:/var/log/lumenxd/digitaloceand.log
+StandardError=file:/var/log/lumenxd/digitaloceand_error.log
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+[Install]
+WantedBy=multi-user.target
+```
+
+Enabled it to run all the time even after it reboots.
+```
+sudo systemctl enable lumenxd.service
+#Start process
+sudo systemctl start lumenxd.service
+#Stop process
+sudo systemctl stop lumenxd.service
+#View logs
+sudo journalctl -u lumenxd -f
+```
