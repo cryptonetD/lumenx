@@ -11,21 +11,19 @@ Get mainnet config [here](https://github.com/metaprotocol-ai/lumenx/tree/master/
 - Hardware requirements
 CPU: 4 core
 RAM: 16 GB
-DISK Storage: SSD 500 GB
+DISK Storage: SSD 1,000 GB
 ```
 
 ### Build from code
 
-This assumes that you're running Linux or MacOS and have installed [Go 1.17+](https://golang.org/dl/).  This guide helps you:
+This assumes that you're running Linux and have installed [Go 1.17+](https://golang.org/dl/).  This guide helps you:
 
 Build, Install, and Name your Node
-
-Current first you must sync from v4.3.0
 ```bash
 # Clone LumenX from the latest release found here: https://github.com/metaprotocol-ai/lumenx/releases
 git clone https://github.com/metaprotocol-ai/lumenx
 # Enter the folder LumenX was cloned into
-cd LumenX
+cd lumenx
 # Compile and install LumenX
 make build
 # Check LumenX version
@@ -33,11 +31,6 @@ build/lumenxd version
 ```
 
 ### To join mainnet follow this steps
-
-#### Initialize data and folders
-```bash
-build/lumenxd unsafe-reset-all
-```
 
 #### Genesis & Seeds
 Download [genesis.json](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/genesis.json)
@@ -85,10 +78,6 @@ build/lumenxd status
 
 #### Compile and install LumenX
 `make build`
-
-#### Check LumenX version
-`build/lumenxd version`
-Should return 0.1.0
 
 #### Start LumenX
 `build/lumenxd start`
