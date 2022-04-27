@@ -79,7 +79,7 @@ screen -dmSL lumenxd build/lumenxd start
 # Check your node's status with LumenX cli
 build/lumenxd status
 ```
-If you want to run lumenxd as a permanent background service, see [here](https://github.com/metaprotocol-ai/lumenx/tree/master/run-a-node-as-a-background-service)
+If you want to run lumenxd as a permanent background service, see [here](https://github.com/metaprotocol-ai/lumenx#run-a-node-as-a-background-service)
 
 ### Create a key
 Add new
