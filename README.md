@@ -10,7 +10,7 @@ Get mainnet config [here](https://github.com/metaprotocol-ai/lumenx/tree/master/
 ```
 - Hardware requirements
 CPU: 4 core or higher
-RAM: 16 GB (32GB recommended)
+RAM: 16 GB (32 GB recommended)
 DISK Storage: SSD(NVME) 2 TB (minimum 1 TB)
 
 - Software requirements
