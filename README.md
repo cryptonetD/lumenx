@@ -130,7 +130,7 @@ build/lumenxd query bank balances <key address>
 ```
 
 For test nodes, `chain-id` is `LumenX`.\
-You need transction fee `2000000ulumen` to make your transaction for creating validator.\
+You need transction fee `2000000ulumen`(2lumen) to make your transaction for creating validator.\
 Don't use more `ulumen` than you have!
 
 ```bash
