@@ -3,15 +3,15 @@ LumenX is the blockchain built using the [Cosmos SDK](https://github.com/cosmos/
 # LumenX network
 
 ## Mainnet Full Node Quick Start
-With each version of the LumenX, the chain is restarted from a new Genesis state. We are currently on lumenx.
+With each version of the LumenX, the chain is restarted from a new Genesis state.
 
 Get mainnet config [here](https://github.com/metaprotocol-ai/lumenx/tree/master/config)
 
 ```
 - Hardware requirements
-CPU: 4 core
-RAM: 16 GB
-DISK Storage: SSD 1,000 GB
+CPU: 4 core or higher
+RAM: 16 GB (32GB recommended)
+DISK Storage: SSD(NVME) 2 TB (minimum 1 TB)
 
 - Software requirements
 OS: Ubuntu Server 20.04
