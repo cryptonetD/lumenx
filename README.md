@@ -20,7 +20,7 @@ Go version: Go 1.17+
 
 ### Build from code
 
-This assumes that you're running Linux and have installed [Go 1.17+](https://golang.org/dl/).  This guide helps you:
+These instructions assume you are running Linux and have installed [Go 1.17+](https://golang.org/dl/).  This guide helps you:
 
 Build, Install, and Name your Node
 ```bash
@@ -215,6 +215,7 @@ WantedBy=multi-user.target
 
 Enabled it to run all the time even after it reboots.
 ```
+#enable service
 sudo systemctl enable lumenxd.service
 #Start process
 sudo systemctl start lumenxd.service
