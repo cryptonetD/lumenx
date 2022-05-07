@@ -65,8 +65,8 @@ You can edit the ~/.lumenx/config/app.toml file in order to enable the anti spam
 ##### main base config options #####
 # The minimum gas prices a validator is willing to accept for processing a
 # transaction. A transaction's fees must meet the minimum of any denomination
-# specified in this config (e.g. 10ulumen).
-minimum-gas-prices = ""
+# specified in this config (e.g. 0.0025ulumen).
+minimum-gas-prices = "0.0025ulumen"
 ```
 Your full node has been initialized!
 
