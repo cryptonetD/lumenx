@@ -29,9 +29,9 @@ git clone https://github.com/metaprotocol-ai/lumenx
 # Enter the folder LumenX was cloned into
 cd lumenx
 # Compile and install LumenX
-make build
+make install
 # Check LumenX version
-build/lumenxd version
+lumenxd version
 ```
 
 ### To join mainnet follow this steps
@@ -76,23 +76,23 @@ Your full node has been initialized!
 #### Run a full node
 ```
 # Start LumenX
-build/lumenxd start
+lumenxd start
 # to run process in background run
-screen -dmSL lumenxd build/lumenxd start
+screen -dmSL lumenxd start
 # Check your node's status with LumenX cli
-build/lumenxd status
+lumenxd status
 ```
 If you want to run lumenxd as a permanent background service, see [here](https://github.com/metaprotocol-ai/lumenx#run-a-node-as-a-background-service)
 
 ### Create a key
 Add new
 ``` bash
-build/lumenxd keys add <key_name>
+lumenxd keys add <key_name>
 ```
 
 Or import via mnemonic
 ```bash
-build/lumenxd keys add <key_name> -i
+lumenxd keys add <key_name> -i
 ```
 
 As a result, you got
@@ -121,7 +121,7 @@ Please read about [Sentry Node Architecture](https://hub.cosmos.network/main/val
 Your `lumenvalconspub` can be used to create a new validator by staking tokens. You can find your validator pubkey by running:
 
 ```bash
-build/lumenxd tendermint show-validator
+lumenxd tendermint show-validator
 ```
 
 To create your validator, just use the following command:
@@ -129,7 +129,7 @@ To create your validator, just use the following command:
 Check if your key(address) has enough balance:
 
 ```bash
-build/lumenxd query bank balances <key address>
+lumenxd query bank balances <key address>
 ```
 
 For test nodes, `chain-id` is `LumenX`.\
@@ -137,9 +137,9 @@ You need transction fee `2000000ulumen`(2lumen) to make your transaction for cre
 Don't use more `ulumen` than you have!
 
 ```bash
-build/lumenxd tx staking create-validator \
+lumenxd tx staking create-validator \
   --amount=10000000ulumen \
-  --pubkey=$(build/lumenxd tendermint show-validator) \
+  --pubkey=$(lumenxd tendermint show-validator) \
   --moniker=<choose a moniker> \
   --chain-id=<chain_id> \
   --commission-rate="0.10" \
@@ -150,7 +150,7 @@ build/lumenxd tx staking create-validator \
   --fees=2000000ulumen
 ```
 
-* NOTE: If you have troubles with \'\\\' symbol, run the command in a single line like `build/lumenxd tx staking create-validator --amount=1000000ulumen --pubkey=$(build/lumenxd tendermint show-validator) ...`
+* NOTE: If you have troubles with \'\\\' symbol, run the command in a single line like `lumenxd tx staking create-validator --amount=1000000ulumen --pubkey=$(lumenxd tendermint show-validator) ...`
 
 When specifying commission parameters, the `commission-max-change-rate` is used to measure % _point_ change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
 
@@ -158,32 +158,32 @@ When specifying commission parameters, the `commission-max-change-rate` is used 
 
 You can check that you are in the validator set by using a third party explorer or using cli tool
 ```bash
-build/lumenxd query staking validators --chain-id=<chain_id>
+lumenxd query staking validators --chain-id=<chain_id>
 ```
 
-* Note: You can edit the params after, by running command `build/lumenxd tx staking edit-validator ... —from <key_name> --chain-id=<chain_id> --fees=2ulumen` with the necessary options
+* Note: You can edit the params after, by running command `lumenxd tx staking edit-validator ... —from <key_name> --chain-id=<chain_id> --fees=2ulumen` with the necessary options
 
 ## How to init chain
 
 Add key to your keyring
-```build/lumenxd keys add <key name>```
+```lumenxd keys add <key name>```
 
 Initialize genesis and config files.
-```build/lumenxd init <moniker> --chain-id <chain id>```
+```lumenxd init <moniker> --chain-id <chain id>```
 
 Replace all denoms `stake` to `ulumen` in `genesis.json`
 
 Add genesis account
-```build/lumenxd add-genesis-account <key name> 200000000000ulumen``` - 200000lumen
+```lumenxd add-genesis-account <key name> 200000000000ulumen``` - 200000lumen
 
 Create genesis transaction
-```build/lumenxd gentx <key name> 100000000000ulumen --chain-id <chain id>``` - create CreateValidator transaction
+```lumenxd gentx <key name> 100000000000ulumen --chain-id <chain id>``` - create CreateValidator transaction
 
 Collect all of gentxs
-```build/lumenxd collect-gentxs```
+```lumenxd collect-gentxs```
 
 Run network
-```build/lumenxd start```
+```lumenxd start```
 
 
 ## Run a node as a background service
