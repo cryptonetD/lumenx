@@ -228,7 +228,7 @@ Description=lumenxd daemon
 After=network-online.target
 [Service]
 User=ubuntu
-ExecStart=/home/ubuntu/lumenx/build/lumenxd start --home=/home/ubuntu/.lumenx
+ExecStart=/home/ubuntu/go/bin/lumenxd start --home=/home/ubuntu/.lumenx
 WorkingDirectory=/home/ubuntu/go/bin
 StandardOutput=file:/var/log/lumenxd/digitaloceand.log
 StandardError=file:/var/log/lumenxd/digitaloceand_error.log
