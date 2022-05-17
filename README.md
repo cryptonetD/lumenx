@@ -85,8 +85,6 @@ Your full node has been initialized!
 ```
 # Start LumenX
 lumenxd start
-# to run process in background run
-screen -dmSL lumenxd start
 # Check your node's status with LumenX cli
 lumenxd status
 ```
