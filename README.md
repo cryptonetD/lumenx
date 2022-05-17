@@ -41,7 +41,7 @@ lumenxd version
 Initialize the node with a human-readable name:
 
 ```bash
-lumend init <your_custom_moniker> # ex., lumend init validator-joes-node
+lumenxd init <your_custom_moniker> # ex., lumenxd init validator-joes-node
 ```
 
 #### Moniker characters
