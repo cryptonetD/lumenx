@@ -95,9 +95,10 @@ If you want to run lumenxd as a permanent background service, see [here](https:/
 Your node is now syncing. This process will take a long time. Make sure you've set it up on a stable connection so you can leave while it syncs.
 
 ```
-####Sync start times
+Sync start times
 
-Nodes take at least an hour to start syncing. This wait is normal. Before troubleshooting a sync, please wait an hour for the sync to start.
+Nodes take at least an hour to start syncing. This wait is normal.
+Before troubleshooting a sync, please wait an hour for the sync to start.
 ```
 
 ### Create a key
