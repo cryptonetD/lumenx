@@ -92,6 +92,14 @@ lumenxd status
 ```
 If you want to run lumenxd as a permanent background service, see [here](https://github.com/metaprotocol-ai/lumenx#run-a-node-as-a-background-service)
 
+Your node is now syncing. This process will take a long time. Make sure you've set it up on a stable connection so you can leave while it syncs.
+
+::: {admonition} Sync start times
+:class: caution
+
+Nodes take at least an hour to start syncing. This wait is normal. Before troubleshooting a sync, please wait an hour for the sync to start.
+:::
+
 ### Create a key
 Add new
 ``` bash
