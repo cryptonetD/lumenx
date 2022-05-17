@@ -69,7 +69,10 @@ moniker = "<your_custom_moniker>"
 # specified in this config (e.g. 0.25token1;0.0001token2).
 minimum-gas-prices = "0.0025ulumen"
 ```
-
+or just download [app.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml)
+```
+wget -O $HOME/.lumenx/config/app.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml
+```
 
 ### To join mainnet follow this steps
 
