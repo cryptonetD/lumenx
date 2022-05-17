@@ -45,7 +45,10 @@ Download [config.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/
 ```
 wget -O $HOME/.lumenx/config/config.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/config.toml
 ```
-
+Download [addrbook.json](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/addrbook.json) with predefined seeds and persistent peers
+```
+wget -O $HOME/.lumenx/config/addrbook.json https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/addrbook.json
+```
 Alternatively enter persistent peers to config.toml provided [here](https://github.com/metaprotocol-ai/lumenx/tree/master/config)
 
 1) Open ~/.lumenx/config/config.toml with text editor. Alternatively you can use cli editor, like nano ``` nano ~/.lumenx/config/config.toml ```
