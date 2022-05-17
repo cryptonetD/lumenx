@@ -41,7 +41,7 @@ lumenxd version
 Initialize the node with a human-readable name:
 
 ```bash
-terrad init <your_custom_moniker> # ex., terrad init validator-joes-node
+lumend init <your_custom_moniker> # ex., lumend init validator-joes-node
 ```
 ::: {admonition} Moniker characters
 :class: caution
