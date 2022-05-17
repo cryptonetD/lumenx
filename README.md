@@ -43,10 +43,11 @@ Initialize the node with a human-readable name:
 ```bash
 lumend init <your_custom_moniker> # ex., lumend init validator-joes-node
 ```
-::: {admonition} Moniker characters
-:class: caution
+
+#### Moniker characters
+
 Monikers can only contain ASCII characters; using Unicode characters will render your node unreachable by other peers in the network.
-:::
+
 
 You can update your node's moniker by editing the `moniker` field in  `~/.lumenx/config/config.toml`
 
