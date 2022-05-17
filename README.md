@@ -34,9 +34,9 @@ make install
 lumenxd version
 ```
 
-#### Setting Up a New Node
+### Setting Up a New Node
 
-## Initialize and configure moniker
+#### Initialize and configure moniker
 
 Initialize the node with a human-readable name:
 
@@ -50,7 +50,7 @@ Monikers can only contain ASCII characters; using Unicode characters will render
 
 You can update your node's moniker by editing the `moniker` field in  `~/.lumenx/config/config.toml`
 
-## Update minimum gas prices
+#### Update minimum gas prices
 
 1. Open `~/.lumenx/config/app.toml`.
 
