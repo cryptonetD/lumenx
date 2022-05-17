@@ -50,6 +50,10 @@ Monikers can only contain ASCII characters; using Unicode characters will render
 
 
 You can update your node's moniker by editing the `moniker` field in  `~/.lumenx/config/config.toml`
+```bash
+# A custom human readable name for this node
+moniker = "<your_custom_moniker>"
+```
 
 #### Update minimum gas prices
 
