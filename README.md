@@ -203,10 +203,11 @@ lumenxd tx staking edit-validator
 | --details           | string | false    | ""       | Optional details |
 
 
-## Examples
+#### Examples
 ```bash
 lumenxd tx staking edit-validator --commission-rate 0.10 --from node1
 ```
+
 
 ## How to init chain
 
