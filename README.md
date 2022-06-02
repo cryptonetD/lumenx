@@ -34,46 +34,6 @@ make install
 lumenxd version
 ```
 
-### Setting Up a New Node
-
-#### Initialize and configure moniker
-
-Initialize the node with a human-readable name:
-
-```bash
-lumenxd init <your_custom_moniker> # ex., lumenxd init validator-joes-node
-```
-
-#### Moniker characters
-
-Monikers can only contain ASCII characters; using Unicode characters will render your node unreachable by other peers in the network.
-
-
-You can update your node's moniker by editing the `moniker` field in  `~/.lumenx/config/config.toml`
-```bash
-# A custom human readable name for this node
-moniker = "<your_custom_moniker>"
-```
-
-#### Update minimum gas prices
-
-1. Open `~/.lumenx/config/app.toml`.
-
-2. Modify `minimum-gas-prices` and set the minimum price of gas a validator will accept to validate a transaction and to prevent spam.
-
-**Example**:
-
-```toml
-# The minimum gas prices a validator is willing to accept for processing a
-# transaction. A transaction's fees must meet the minimum of any denomination
-# specified in this config (e.g. 0.25token1;0.0001token2).
-minimum-gas-prices = "0.0025ulumen"
-```
-or just download [app.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml)
-```
-wget -O $HOME/.lumenx/config/app.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml
-```
-
 ### To join mainnet follow this steps
 
 #### Genesis & Seeds
@@ -81,11 +41,43 @@ Download [genesis.json](https://raw.githubusercontent.com/metaprotocol-ai/lumenx
 ```
 wget -O $HOME/.lumenx/config/genesis.json https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/genesis.json
 ```
+Download [config.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/config.toml) with predefined seeds and persistent peers
+```
+wget -O $HOME/.lumenx/config/config.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/config.toml
+```
 Download [addrbook.json](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/addrbook.json) with predefined seeds and persistent peers
 ```
 wget -O $HOME/.lumenx/config/addrbook.json https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/addrbook.json
 ```
-Alternatively enter persistent peers to addrbook.json provided [here](https://github.com/metaprotocol-ai/lumenx/tree/master/config)
+Alternatively enter persistent peers to config.toml provided [here](https://github.com/metaprotocol-ai/lumenx/tree/master/config)
+
+1) Open ~/.lumenx/config/config.toml with text editor. Alternatively you can use cli editor, like nano ``` nano ~/.lumenx/config/config.toml ```
+2) Scroll down to persistant peers in `config.toml`, and add the persistant peers as a comma-separated list
+
+#### Setting Up a New Node
+You can edit this moniker, in the ~/.lumenx/config/config.toml file:
+```bash
+# A custom human readable name for this node
+moniker = "<your_custom_moniker>"
+```
+#### Moniker characters
+
+Monikers can only contain ASCII characters; using Unicode characters will render your node unreachable by other peers in the network.
+
+You can edit the ~/.lumenx/config/app.toml file in order to enable the anti spam mechanism and reject incoming transactions with less than the minimum gas prices:
+```
+# This is a TOML config file.
+# For more information, see https://github.com/toml-lang/toml
+##### main base config options #####
+# The minimum gas prices a validator is willing to accept for processing a
+# transaction. A transaction's fees must meet the minimum of any denomination
+# specified in this config (e.g. 0.0025ulumen).
+minimum-gas-prices = "0.0025ulumen"
+```
+or just download [app.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml)
+```
+wget -O $HOME/.lumenx/config/app.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml
+```
 
 Your full node has been initialized!
 
