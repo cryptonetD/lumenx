@@ -178,6 +178,36 @@ lumenxd query staking validators --chain-id=<chain_id>
 
 * Note: You can edit the params after, by running command `lumenxd tx staking edit-validator ... —from <key_name> --chain-id=<chain_id> --fees=2ulumen` with the necessary options
 
+
+#### Edit Validator Description
+You can edit your validator's public description. This info is to identify your validator, and will be relied on by delegators to decide which validators to stake to. Make sure to provide input for every flag below. If a flag is not included in the command the field will default to empty (--moniker defaults to the machine name) if the field has never been set or remain the same if it has been set in the past.
+
+```bash
+lumenxd tx staking edit-validator
+  --moniker=<choose a moniker> \
+  --website=<your website url> \
+  --details=<description> \
+  --chain-id=<chain_id> \
+  --from=<key_name> \
+  --commission-rate=<commission rate>
+```
+
+#### Unique Flags
+
+| Name, shorthand     | type   | Required | Default  | Description                                                         |
+| --------------------| -----  | -------- | -------- | ------------------------------------------------------------------- |
+| --commission-rate   | string | float    | 0.0      | Commission rate percentage |
+| --moniker           | string | false    | ""       | Validator name |
+| --identity          | string | false    | ""       | Optional identity signature (ex. UPort or Keybase) |
+| --website           | string | false    | ""       | Optional website  |
+| --details           | string | false    | ""       | Optional details |
+
+
+## Examples
+```bash
+lumenxd tx staking edit-validator --commission-rate 0.10 --from node1
+```
+
 ## How to init chain
 
 Add key to your keyring
