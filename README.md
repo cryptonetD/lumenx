@@ -205,7 +205,7 @@ lumenxd tx staking edit-validator
 
 #### Examples
 ```bash
-lumenxd tx staking edit-validator --commission-rate 0.10 --from node1
+lumenxd tx staking edit-validator --commission-rate 0.10 --from alice
 ```
 
 
