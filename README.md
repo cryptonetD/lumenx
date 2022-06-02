@@ -212,7 +212,7 @@ lumenxd tx staking edit-validator --commission-rate 0.10 --from alice
 #### Put a thumbnail
 Create a [Keybase Account](https://keybase.io/) follow the Keybase instructions to set up a PGP key, and upload a profile picture.
 ```bash
-terrad tx staking edit-validator \
+lumenxd tx staking edit-validator \
     --identity="keybase identity"  --from alice
 ```
 
