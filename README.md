@@ -64,14 +64,18 @@ moniker = "<your_custom_moniker>"
 
 Monikers can only contain ASCII characters; using Unicode characters will render your node unreachable by other peers in the network.
 
-You can edit the ~/.lumenx/config/app.toml file in order to enable the anti spam mechanism and reject incoming transactions with less than the minimum gas prices:
-```
-# This is a TOML config file.
-# For more information, see https://github.com/toml-lang/toml
-##### main base config options #####
+#### Update minimum gas prices
+
+1. Open `~/.lumenx/config/app.toml`.
+
+2. Modify `minimum-gas-prices` and set the minimum price of gas a validator will accept to validate a transaction and to prevent spam.
+
+**Example**:
+
+```toml
 # The minimum gas prices a validator is willing to accept for processing a
 # transaction. A transaction's fees must meet the minimum of any denomination
-# specified in this config (e.g. 0.0025ulumen).
+# specified in this config (e.g. 0.25token1;0.0001token2).
 minimum-gas-prices = "0.0025ulumen"
 ```
 or just download [app.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml)
