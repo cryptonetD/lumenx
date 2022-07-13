@@ -206,14 +206,14 @@ lumenxd tx staking edit-validator
 
 #### Examples
 ```bash
-lumenxd tx staking edit-validator --commission-rate 0.10 --from alice
+lumenxd tx staking edit-validator --commission-rate 0.10 --from <key_name>
 ```
 
 #### Put a thumbnail
 Create a [Keybase Account](https://keybase.io/) follow the Keybase instructions to set up a PGP key, and upload a profile picture.
 And link your Keybase profile to your validator.
 ```bash
-lumenxd tx staking edit-validator --identity="6A0D65E29A4CBC8E" --from alice
+lumenxd tx staking edit-validator --identity="6A0D65E29A4CBC8E" --from <key_name>
 ```
 
 #### unjail
