@@ -226,18 +226,18 @@ lumenxd tx slashing unjail --chain-id=LumenX --fees=500ulumen --from <key_name>
 ## How to init chain
 
 Add key to your keyring
-```lumenxd keys add <key name>```
+```lumenxd keys add <key_name>```
 
 Initialize genesis and config files.
-```lumenxd init <moniker> --chain-id <chain id>```
+```lumenxd init <moniker> --chain-id <chain_id>```
 
 Replace all denoms `stake` to `ulumen` in `genesis.json`
 
 Add genesis account
-```lumenxd add-genesis-account <key name> 200000000000ulumen``` - 200000lumen
+```lumenxd add-genesis-account <key_name> 200000000000ulumen``` - 200000lumen
 
 Create genesis transaction
-```lumenxd gentx <key name> 100000000000ulumen --chain-id <chain id>``` - create CreateValidator transaction
+```lumenxd gentx <key_name> 100000000000ulumen --chain-id <chain_id>``` - create CreateValidator transaction
 
 Collect all of gentxs
 ```lumenxd collect-gentxs```
