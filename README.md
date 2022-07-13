@@ -216,6 +216,13 @@ And link your Keybase profile to your validator.
 lumenxd tx staking edit-validator --identity="6A0D65E29A4CBC8E" --from alice
 ```
 
+#### unjail
+The unjail command allows users to unjail a validator previously jailed for downtime.\
+You need transction fee `500ulumen` to make your transaction.\
+```bash
+lumenxd tx slashing unjail --chain-id=LumenX --fees=500ulumen --from <key_name>
+```
+
 ## How to init chain
 
 Add key to your keyring
