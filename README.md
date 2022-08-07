@@ -15,12 +15,12 @@ DISK Storage: SSD(NVME) 2 TB (minimum 1 TB)
 
 - Software requirements
 OS: Ubuntu Server 20.04
-Go version: Go 1.17+
+Go version: Go 1.18+
 ```
 
 ### Build from code
 
-These instructions assume you are running Linux and have installed [Go 1.17+](https://golang.org/dl/).  This guide helps you:
+These instructions assume you are running Linux and have installed [Go 1.18+](https://golang.org/dl/).  This guide helps you:
 
 Build, Install, and Name your Node
 ```bash
