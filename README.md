@@ -99,6 +99,10 @@ Nodes take at least an hour to start syncing. This wait is normal.
 Before troubleshooting a sync, please wait an hour for the sync to start.
 ```
 
+#### Starting New Node From State Sync
+The Tendermint Core 0.34 release includes support for state sync, which allows a new node to join a network by fetching a snapshot of the application state at a recent height instead of fetching and replaying all historical blocks. This can reduce the time needed to sync with the network from days to minutes. If you want to reduce the sync time, see [here](https://scope.helios-1.lumenex.io/lumenx/statesync)
+
+
 ### Create a key
 Add new
 ``` bash
