@@ -102,6 +102,16 @@ Before troubleshooting a sync, please wait an hour for the sync to start.
 #### Starting New Node From State Sync
 The Tendermint Core 0.34 release includes support for state sync, which allows a new node to join a network by fetching a snapshot of the application state at a recent height instead of fetching and replaying all historical blocks. This can reduce the time needed to sync with the network from days to minutes. If you want to reduce the sync time, see [here](https://scope.helios-1.lumenex.io/lumenx/statesync)
 
+```
+State Sync Example
+
+[statesync]
+enable = true
+rpc_servers = "https://rpc.helios-1.lumenex.io:443,http://node4.lumenex.io:26657"
+trust_height = 1686000
+trust_hash = "EB0C9582F29A0BC166C8F8ECFBCE7ED129B8E15B8EF28B68772E00B282D3E97B"
+trust_period = "168h"  # 2/3 of unbonding time
+```
 
 ### Create a key
 Add new
