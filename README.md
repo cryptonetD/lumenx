@@ -227,7 +227,7 @@ lumenxd tx staking edit-validator --chain-id=LumenX --commission-rate 0.10 --fro
 Create a [Keybase Account](https://keybase.io/) follow the Keybase instructions to set up a PGP key, and upload a profile picture.
 And link your Keybase profile to your validator.
 ```bash
-lumenxd tx staking edit-validator --chain-id=LumenX --identity="6A0D65E29A4CBC8E" --from <key_name>
+lumenxd tx staking edit-validator --chain-id=LumenX --identity="4659E8D3FE1FCBB5" --from <key_name>
 ```
 
 #### Unjail a validator
