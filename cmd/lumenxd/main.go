@@ -4,7 +4,7 @@ import (
 	"os"
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	"github.com/ignite-hq/cli/ignite/pkg/cosmoscmd"
+	"github.com/ignite/cli/ignite/pkg/cosmoscmd"
 	"github.com/metaprotocol-ai/lumenx/app"
 )
 

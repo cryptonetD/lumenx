@@ -13,7 +13,7 @@ option go_package = "github.com/metaprotocol-ai/lumenx/x/lumenx/types";
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/metaprotocolai/lumenx/lumenx/params";
+    option (google.api.http).get = "/metaprotocol-ai/lumenx/lumenx/params";
   }
   // this line is used by starport scaffolding # 2
 }
