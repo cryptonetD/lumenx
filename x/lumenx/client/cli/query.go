@@ -10,7 +10,7 @@ import (
 	// "github.com/cosmos/cosmos-sdk/client/flags"
 	// sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

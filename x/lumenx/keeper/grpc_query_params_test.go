@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	testkeeper "github.com/metaprotocol-ai/lumenx/testutil/keeper"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	testkeeper "github.com/cryptonetD/lumenx/testutil/keeper"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 	"github.com/stretchr/testify/require"
 )
 

@@ -4,7 +4,7 @@ import (
 	"context"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

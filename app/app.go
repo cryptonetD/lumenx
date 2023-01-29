@@ -95,11 +95,11 @@ import (
 	monitoringpkeeper "github.com/tendermint/spn/x/monitoringp/keeper"
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
-	"github.com/metaprotocol-ai/lumenx/docs"
+	"github.com/cryptonetD/lumenx/docs"
 
-	lumenxmodule "github.com/metaprotocol-ai/lumenx/x/lumenx"
-	lumenxmodulekeeper "github.com/metaprotocol-ai/lumenx/x/lumenx/keeper"
-	lumenxmoduletypes "github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	lumenxmodule "github.com/cryptonetD/lumenx/x/lumenx"
+	lumenxmodulekeeper "github.com/cryptonetD/lumenx/x/lumenx/keeper"
+	lumenxmoduletypes "github.com/cryptonetD/lumenx/x/lumenx/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 

@@ -9,9 +9,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"github.com/metaprotocol-ai/lumenx/testutil/sample"
-	lumenxsimulation "github.com/metaprotocol-ai/lumenx/x/lumenx/simulation"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/testutil/sample"
+	lumenxsimulation "github.com/cryptonetD/lumenx/x/lumenx/simulation"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 )
 
 // avoid unused import issue

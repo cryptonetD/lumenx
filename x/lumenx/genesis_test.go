@@ -3,10 +3,10 @@ package lumenx_test
 import (
 	"testing"
 
-	keepertest "github.com/metaprotocol-ai/lumenx/testutil/keeper"
-	"github.com/metaprotocol-ai/lumenx/testutil/nullify"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	keepertest "github.com/cryptonetD/lumenx/testutil/keeper"
+	"github.com/cryptonetD/lumenx/testutil/nullify"
+	"github.com/cryptonetD/lumenx/x/lumenx"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 	"github.com/stretchr/testify/require"
 )
 

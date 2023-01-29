@@ -1,4 +1,4 @@
-module github.com/metaprotocol-ai/lumenx
+module github.com/cryptonetD/lumenx
 
 go 1.18
 
