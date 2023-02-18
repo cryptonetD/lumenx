@@ -16,6 +16,7 @@ func (app *App) registerUpgradeHandlers() {
 
 	// version for upgrade test
 	app.UpgradeKeeper.SetUpgradeHandler("v1.3.2", func(ctx sdk.Context, plan upgradetypes.Plan, fromVM module.VersionMap) (module.VersionMap, error) {
+		app.Logger().Info("v1.3.2 upgrade applied.")
 		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
 	})
 
