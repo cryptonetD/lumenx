@@ -20,6 +20,11 @@ func (app *App) registerUpgradeHandlers() {
 		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
 	})
 
+	app.UpgradeKeeper.SetUpgradeHandler("v1.3.3", func(ctx sdk.Context, plan upgradetypes.Plan, fromVM module.VersionMap) (module.VersionMap, error) {
+		app.Logger().Info("v1.3.3 upgrade applied.")
+		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
+	})
+
 	// prepared version for authz
 	//app.UpgradeKeeper.SetUpgradeHandler("v1.4.0", app.upgradeHandler)
 
