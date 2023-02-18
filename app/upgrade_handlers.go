@@ -9,11 +9,16 @@ import (
 
 func (app *App) registerUpgradeHandlers() {
 
-	// first upgrade version from code
-	app.UpgradeKeeper.SetUpgradeHandler("v.1.3.1", app.upgradeHandler)
+	// first automated migration - no changes
+	app.UpgradeKeeper.SetUpgradeHandler("v.1.3.1", func(ctx sdk.Context, plan upgradetypes.Plan, fromVM module.VersionMap) (module.VersionMap, error) {
+		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
+	})
 
 	// version for upgrade test
-	app.UpgradeKeeper.SetUpgradeHandler("v1.3.2", app.upgradeHandler)
+	app.UpgradeKeeper.SetUpgradeHandler("v1.3.2", func(ctx sdk.Context, plan upgradetypes.Plan, fromVM module.VersionMap) (module.VersionMap, error) {
+		app.Logger().Info("v1.3.2 upgrade applied.")
+		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
+	})
 
 	// prepared version for authz
 	//app.UpgradeKeeper.SetUpgradeHandler("v1.4.0", app.upgradeHandler)
@@ -32,28 +37,4 @@ func (app *App) registerUpgradeHandlers() {
 		// configure store loader that checks if version == upgradeHeight and applies store upgrades
 		app.SetStoreLoader(upgradetypes.UpgradeStoreLoader(upgradeInfo.Height, &storeUpgrades))
 	}
-}
-
-func (app *App) upgradeHandler(ctx sdk.Context, plan upgradetypes.Plan, _ module.VersionMap) (module.VersionMap, error) {
-	// 1st-time running in-store migrations, using 1 as fromVersion to
-	// avoid running InitGenesis.
-	fromVM := map[string]uint64{
-		"auth":         1,
-		"bank":         1,
-		"crisis":       1,
-		"distribution": 1,
-		"evidence":     1,
-		"gov":          1,
-		"params":       1,
-		"slashing":     1,
-		"staking":      1,
-		"upgrade":      1,
-		"vesting":      1,
-		"genutil":      1,
-		"enterprise":   1,
-		"beacon":       1,
-		"wrkchain":     1,
-	}
-
-	return app.mm.RunMigrations(ctx, app.configurator, fromVM)
 }
