@@ -9,16 +9,10 @@ import (
 
 func (app *App) registerUpgradeHandlers() {
 
-
 	// first automated migration - no changes
 	app.UpgradeKeeper.SetUpgradeHandler("v.1.3.1", func(ctx sdk.Context, plan upgradetypes.Plan, fromVM module.VersionMap) (module.VersionMap, error) {
 		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
 	})
-	// first upgrade version from code
-	app.UpgradeKeeper.SetUpgradeHandler("v.1.3.1", app.upgradeHandler)
-
-	// version for upgrade test
-	app.UpgradeKeeper.SetUpgradeHandler("v1.3.2", app.upgradeHandler)
 
 	// prepared version for authz
 	//app.UpgradeKeeper.SetUpgradeHandler("v1.4.0", app.upgradeHandler)
