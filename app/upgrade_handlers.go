@@ -9,10 +9,14 @@ import (
 
 func (app *App) registerUpgradeHandlers() {
 
-	// first upgrade 1-ibc, integrates IBC - FUND-TestNet-2 & DevNets
+	// first upgrade version from code
 	app.UpgradeKeeper.SetUpgradeHandler("v.1.3.1", app.upgradeHandler)
-	// first upgrade 1-ibc, integrates IBC - FUND-MainNet-2
-	app.UpgradeKeeper.SetUpgradeHandler("v.1.4.0", app.upgradeHandler)
+
+	// version for upgrade test
+	app.UpgradeKeeper.SetUpgradeHandler("v1.3.2", app.upgradeHandler)
+
+	// prepared version for authz
+	//app.UpgradeKeeper.SetUpgradeHandler("v1.4.0", app.upgradeHandler)
 
 	upgradeInfo, err := app.UpgradeKeeper.ReadUpgradeInfoFromDisk()
 	if err != nil {
