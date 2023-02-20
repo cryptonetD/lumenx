@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 )
 
 var (

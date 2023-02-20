@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/keeper"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/x/lumenx/keeper"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 )
 
 // NewHandler ...

@@ -4,8 +4,8 @@ import (
 	"os"
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
+	"github.com/cryptonetD/lumenx/app"
 	"github.com/ignite/cli/ignite/pkg/cosmoscmd"
-	"github.com/metaprotocol-ai/lumenx/app"
 )
 
 func main() {

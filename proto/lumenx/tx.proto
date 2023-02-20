@@ -3,7 +3,7 @@ package metaprotocolai.lumenx.lumenx;
 
 // this line is used by starport scaffolding # proto/tx/import
 
-option go_package = "github.com/metaprotocol-ai/lumenx/x/lumenx/types";
+option go_package = "github.com/cryptonetD/lumenx/x/lumenx/types";
 
 // Msg defines the Msg service.
 service Msg {

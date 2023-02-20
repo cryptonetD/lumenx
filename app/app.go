@@ -95,11 +95,11 @@ import (
 	monitoringpkeeper "github.com/tendermint/spn/x/monitoringp/keeper"
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
-	"github.com/metaprotocol-ai/lumenx/docs"
+	"github.com/cryptonetD/lumenx/docs"
 
-	lumenxmodule "github.com/metaprotocol-ai/lumenx/x/lumenx"
-	lumenxmodulekeeper "github.com/metaprotocol-ai/lumenx/x/lumenx/keeper"
-	lumenxmoduletypes "github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	lumenxmodule "github.com/cryptonetD/lumenx/x/lumenx"
+	lumenxmodulekeeper "github.com/cryptonetD/lumenx/x/lumenx/keeper"
+	lumenxmoduletypes "github.com/cryptonetD/lumenx/x/lumenx/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 
@@ -235,6 +235,9 @@ type App struct {
 
 	// sm is the simulation manager
 	sm *module.SimulationManager
+
+	// module configurator
+	configurator module.Configurator
 }
 
 // New returns a reference to an initialized blockchain app
@@ -322,6 +325,9 @@ func New(
 
 	app.FeeGrantKeeper = feegrantkeeper.NewKeeper(appCodec, keys[feegrant.StoreKey], app.AccountKeeper)
 	app.UpgradeKeeper = upgradekeeper.NewKeeper(skipUpgradeHeights, keys[upgradetypes.StoreKey], appCodec, homePath, app.BaseApp)
+
+	// register Upgrade Handlers
+	app.registerUpgradeHandlers()
 
 	// register the staking hooks
 	// NOTE: stakingKeeper above is passed by reference, so that it will contain these hooks
@@ -514,7 +520,8 @@ func New(
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
 	app.mm.RegisterRoutes(app.Router(), app.QueryRouter(), encodingConfig.Amino)
-	app.mm.RegisterServices(module.NewConfigurator(app.appCodec, app.MsgServiceRouter(), app.GRPCQueryRouter()))
+	app.configurator = module.NewConfigurator(app.appCodec, app.MsgServiceRouter(), app.GRPCQueryRouter())
+	app.mm.RegisterServices(app.configurator)
 
 	// create the simulation manager and define the order of the modules for deterministic simulations
 	app.sm = module.NewSimulationManager(

@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 	"github.com/stretchr/testify/require"
 )
 

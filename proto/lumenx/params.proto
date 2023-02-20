@@ -3,7 +3,7 @@ package metaprotocolai.lumenx.lumenx;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/metaprotocol-ai/lumenx/x/lumenx/types";
+option go_package = "github.com/CryptoNetD/lumenx/x/lumenx/types";
 
 // Params defines the parameters for the module.
 message Params {

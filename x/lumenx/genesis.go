@@ -2,8 +2,8 @@ package lumenx
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/keeper"
-	"github.com/metaprotocol-ai/lumenx/x/lumenx/types"
+	"github.com/cryptonetD/lumenx/x/lumenx/keeper"
+	"github.com/cryptonetD/lumenx/x/lumenx/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis
