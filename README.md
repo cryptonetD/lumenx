@@ -5,7 +5,7 @@ LumenX is the blockchain built using the [Cosmos SDK](https://github.com/cosmos/
 ## Mainnet Full Node Quick Start
 With each version of the LumenX, the chain is restarted from a new Genesis state.
 
-Get mainnet config [here](https://github.com/metaprotocol-ai/lumenx/tree/master/config)
+Get mainnet config [here](https://github.com/cryptonetD/lumenx/tree/master/config)
 
 ```
 - Hardware requirements
@@ -20,12 +20,12 @@ Go version: Go 1.18+
 
 ### Build from code
 
-These instructions assume you are running Linux and have installed [Go 1.18+](https://golang.org/dl/).  This guide helps you:
+These instructions assume you are running Linux and have installed [Go 1.19+](https://go.dev/dl/).  This guide helps you:
 
 Build, Install, and Name your Node
 ```bash
-# Clone LumenX from the latest release found here: https://github.com/metaprotocol-ai/lumenx/releases
-git clone https://github.com/metaprotocol-ai/lumenx
+# Clone LumenX from the latest release found here: https://github.com/cryptonetD/lumenx/releases
+git clone https://github.com/cryptonetD/lumenx
 # Enter the folder LumenX was cloned into
 cd lumenx
 # Compile and install LumenX
@@ -37,15 +37,15 @@ lumenxd version
 ### To join mainnet follow this steps
 
 #### Genesis & Seeds
-Download [genesis.json](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/genesis.json)
+Download [genesis.json](https://raw.githubusercontent.com/cryptonetD/lumenx/master/config/genesis.json)
 ```
-wget -O $HOME/.lumenx/config/genesis.json https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/genesis.json
+wget -O $HOME/.lumenx/config/genesis.json https://raw.githubusercontent.com/cryptonetD/lumenx/master/config/genesis.json
 ```
-Download [config.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/config.toml) with predefined seeds and persistent peers
+Download [config.toml](https://raw.githubusercontent.com/cryptonetD/lumenx/master/config/config.toml) with predefined seeds and persistent peers
 ```
-wget -O $HOME/.lumenx/config/config.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/config.toml
+wget -O $HOME/.lumenx/config/config.toml https://raw.githubusercontent.com/cryptonetD/lumenx/master/config/config.toml
 ```
-Alternatively enter persistent peers to config.toml provided [here](https://github.com/metaprotocol-ai/lumenx/tree/master/config)
+Alternatively enter persistent peers to config.toml provided [here](https://github.com/cryptonetD/lumenx/tree/master/config)
 
 1) Open ~/.lumenx/config/config.toml with text editor. Alternatively you can use cli editor, like nano ``` nano ~/.lumenx/config/config.toml ```
 2) Scroll down to persistant peers in `config.toml`, and add the persistant peers as a comma-separated list
@@ -74,9 +74,9 @@ Monikers can only contain ASCII characters; using Unicode characters will render
 # specified in this config (e.g. 0.25token1;0.0001token2).
 minimum-gas-prices = "0.0025ulumen"
 ```
-or just download [app.toml](https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml)
+or just download [app.toml](https://raw.githubusercontent.com/cryptonetD/lumenx/master/config/app.toml)
 ```
-wget -O $HOME/.lumenx/config/app.toml https://raw.githubusercontent.com/metaprotocol-ai/lumenx/master/config/app.toml
+wget -O $HOME/.lumenx/config/app.toml https://raw.githubusercontent.com/cryptonetD/lumenx/master/config/app.toml
 ```
 
 Your full node has been initialized!
@@ -88,7 +88,7 @@ lumenxd start
 # Check your node's status with LumenX cli
 lumenxd status
 ```
-If you want to run lumenxd as a permanent background service, see [here](https://github.com/metaprotocol-ai/lumenx#run-a-node-as-a-background-service)
+If you want to run lumenxd as a permanent background service, see [here](https://github.com/cryptonetD/lumenx#run-a-node-as-a-background-service)
 
 Your node is now syncing. This process will take a long time. Make sure you've set it up on a stable connection so you can leave while it syncs.
 
@@ -100,14 +100,14 @@ Before troubleshooting a sync, please wait an hour for the sync to start.
 ```
 
 #### Starting New Node From State Sync
-The Tendermint Core 0.34 release includes support for state sync, which allows a new node to join a network by fetching a snapshot of the application state at a recent height instead of fetching and replaying all historical blocks. This can reduce the time needed to sync with the network from days to minutes. If you want to reduce the sync time, see [here](https://scope.helios-1.lumenex.io/lumenx/statesync)
+The Tendermint Core 0.34 release includes support for state sync, which allows a new node to join a network by fetching a snapshot of the application state at a recent height instead of fetching and replaying all historical blocks. This can reduce the time needed to sync with the network from days to minutes. If you want to reduce the sync time, see [here](https://explorer.chaintools.tech/lumenx/statesync)
 
 ```
 State Sync Example
 
 [statesync]
 enable = true
-rpc_servers = "https://rpc.helios-1.lumenex.io:443,http://node4.lumenex.io:26657"
+rpc_servers = "https://rpc.lumenx.chaintools.tech:443,https://rpc-lumenx.cryptonet.pl:443"
 trust_height = 1686000
 trust_hash = "EB0C9582F29A0BC166C8F8ECFBCE7ED129B8E15B8EF28B68772E00B282D3E97B"
 trust_period = "168h"  # 2/3 of unbonding time
@@ -139,7 +139,7 @@ It is the only way to recover your account if you ever forget your password.
 ```
 
 ### To become a validator follow this steps
-Before setting up your validator node, make sure you've already gone through the [Full Node Setup](https://github.com/metaprotocol-ai/lumenx#to-join-mainnet-follow-this-steps)
+Before setting up your validator node, make sure you've already gone through the [Full Node Setup](https://github.com/cryptonetD/lumenx#to-join-mainnet-follow-this-steps)
 
 #### What is a Validator?
 [Validators](https://docs.cosmos.network/v0.44/modules/staking/01_state.html#validator) are responsible for committing new blocks to the blockchain through voting. A validator's stake is slashed if they become unavailable or sign blocks at the same height.
