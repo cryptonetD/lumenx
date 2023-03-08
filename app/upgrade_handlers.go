@@ -35,7 +35,7 @@ func (app *App) registerUpgradeHandlers() {
 		panic(err)
 	}
 
-	// add new modules in 1-ibc upgrade for both FUND-TestNet-2/DevNets and FUND-MainNet-2
+	// add new modules into the storage class
 	if (upgradeInfo.Name == "v.1.4.0") && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
 		storeUpgrades := storetypes.StoreUpgrades{
 			Added: []string{"authz"},
