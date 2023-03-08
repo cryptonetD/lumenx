@@ -28,6 +28,9 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/cosmos/cosmos-sdk/x/auth/vesting"
 	vestingtypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	"github.com/cosmos/cosmos-sdk/x/authz"
+	authzkeeper "github.com/cosmos/cosmos-sdk/x/authz/keeper"
+	authzmodule "github.com/cosmos/cosmos-sdk/x/authz/module"
 	"github.com/cosmos/cosmos-sdk/x/bank"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
@@ -153,6 +156,7 @@ var (
 		upgrade.AppModuleBasic{},
 		evidence.AppModuleBasic{},
 		transfer.AppModuleBasic{},
+		authzmodule.AppModuleBasic{},
 		vesting.AppModuleBasic{},
 		monitoringp.AppModuleBasic{},
 		lumenxmodule.AppModuleBasic{},
@@ -206,6 +210,7 @@ type App struct {
 
 	// keepers
 	AccountKeeper    authkeeper.AccountKeeper
+	AuthzKeeper      authzkeeper.Keeper
 	BankKeeper       bankkeeper.Keeper
 	CapabilityKeeper *capabilitykeeper.Keeper
 	StakingKeeper    stakingkeeper.Keeper
@@ -266,7 +271,7 @@ func New(
 		authtypes.StoreKey, banktypes.StoreKey, stakingtypes.StoreKey,
 		minttypes.StoreKey, distrtypes.StoreKey, slashingtypes.StoreKey,
 		govtypes.StoreKey, paramstypes.StoreKey, ibchost.StoreKey, upgradetypes.StoreKey, feegrant.StoreKey,
-		evidencetypes.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey, monitoringptypes.StoreKey,
+		evidencetypes.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey, authzkeeper.StoreKey, monitoringptypes.StoreKey,
 		lumenxmoduletypes.StoreKey,
 		// this line is used by starport scaffolding # stargate/app/storeKey
 	)
@@ -322,6 +327,9 @@ func New(
 	app.CrisisKeeper = crisiskeeper.NewKeeper(
 		app.GetSubspace(crisistypes.ModuleName), invCheckPeriod, app.BankKeeper, authtypes.FeeCollectorName,
 	)
+
+	// Initialize the authz keeper
+	app.AuthzKeeper = authzkeeper.NewKeeper(keys[authzkeeper.StoreKey], appCodec, bApp.MsgServiceRouter())
 
 	app.FeeGrantKeeper = feegrantkeeper.NewKeeper(appCodec, keys[feegrant.StoreKey], app.AccountKeeper)
 	app.UpgradeKeeper = upgradekeeper.NewKeeper(skipUpgradeHeights, keys[upgradetypes.StoreKey], appCodec, homePath, app.BaseApp)
@@ -435,6 +443,7 @@ func New(
 		ibc.NewAppModule(app.IBCKeeper),
 		params.NewAppModule(app.ParamsKeeper),
 		transferModule,
+		authzmodule.NewAppModule(appCodec, app.AuthzKeeper, app.AccountKeeper, app.BankKeeper, app.interfaceRegistry),
 		monitoringModule,
 		lumenxModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
@@ -460,6 +469,7 @@ func New(
 		govtypes.ModuleName,
 		crisistypes.ModuleName,
 		genutiltypes.ModuleName,
+		authz.ModuleName,
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		monitoringptypes.ModuleName,
@@ -480,6 +490,7 @@ func New(
 		minttypes.ModuleName,
 		genutiltypes.ModuleName,
 		evidencetypes.ModuleName,
+		authz.ModuleName,
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
@@ -515,6 +526,7 @@ func New(
 		feegrant.ModuleName,
 		monitoringptypes.ModuleName,
 		lumenxmoduletypes.ModuleName,
+		authz.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	)
 
@@ -538,6 +550,7 @@ func New(
 		evidence.NewAppModule(app.EvidenceKeeper),
 		ibc.NewAppModule(app.IBCKeeper),
 		transferModule,
+		authzmodule.NewAppModule(appCodec, app.AuthzKeeper, app.AccountKeeper, app.BankKeeper, app.interfaceRegistry),
 		monitoringModule,
 		lumenxModule,
 		// this line is used by starport scaffolding # stargate/app/appModule
@@ -730,6 +743,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(ibchost.ModuleName)
 	paramsKeeper.Subspace(monitoringptypes.ModuleName)
 	paramsKeeper.Subspace(lumenxmoduletypes.ModuleName)
+	paramsKeeper.Subspace(authz.ModuleName)
 	// this line is used by starport scaffolding # stargate/app/paramSubspace
 
 	return paramsKeeper
