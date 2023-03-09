@@ -36,11 +36,11 @@ func (app *App) registerUpgradeHandlers() {
 	}
 
 	// add new modules into the storage class
-	if (upgradeInfo.Name == "v.1.4.0") && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
+	if (upgradeInfo.Name == "v1.4.0") && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
 		storeUpgrades := storetypes.StoreUpgrades{
 			Added: []string{"authz"},
 		}
-
+		app.Logger().Info("storage class upgrade to v1.4.0 applied.")
 		// configure store loader that checks if version == upgradeHeight and applies store upgrades
 		app.SetStoreLoader(upgradetypes.UpgradeStoreLoader(upgradeInfo.Height, &storeUpgrades))
 	}
