@@ -25,20 +25,22 @@ func (app *App) registerUpgradeHandlers() {
 		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
 	})
 
-	// prepared version for authz
-	//app.UpgradeKeeper.SetUpgradeHandler("v1.4.0", app.upgradeHandler)
+	app.UpgradeKeeper.SetUpgradeHandler("v1.4.0", func(ctx sdk.Context, plan upgradetypes.Plan, fromVM module.VersionMap) (module.VersionMap, error) {
+		app.Logger().Info("v1.4.0 upgrade applied.")
+		return app.mm.RunMigrations(ctx, app.configurator, fromVM)
+	})
 
 	upgradeInfo, err := app.UpgradeKeeper.ReadUpgradeInfoFromDisk()
 	if err != nil {
 		panic(err)
 	}
 
-	// add new modules in 1-ibc upgrade for both FUND-TestNet-2/DevNets and FUND-MainNet-2
-	if (upgradeInfo.Name == "v.1.4.0") && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
+	// add new modules into the storage class
+	if (upgradeInfo.Name == "v1.4.0") && !app.UpgradeKeeper.IsSkipHeight(upgradeInfo.Height) {
 		storeUpgrades := storetypes.StoreUpgrades{
 			Added: []string{"authz"},
 		}
-
+		app.Logger().Info("storage class upgrade to v1.4.0 applied.")
 		// configure store loader that checks if version == upgradeHeight and applies store upgrades
 		app.SetStoreLoader(upgradetypes.UpgradeStoreLoader(upgradeInfo.Height, &storeUpgrades))
 	}
